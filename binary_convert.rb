@@ -9,7 +9,12 @@ def binary_conversion
   elsif user_input == "From"
     puts "Enter Binary To Convert:"
     binary = $stdin.gets.chomp.to_s
-    binary = binary.to_i(2)
-    puts binary
+    base = 1
+    total = 0
+    binary.split('').reverse.each do |digit|
+      total = total + (digit.to_i *  base)
+      base = base * 2
+    end
+    puts total
   end
 end
